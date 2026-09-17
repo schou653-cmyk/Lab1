@@ -27,7 +27,7 @@ def parse_row(row: str) -> list:
     line[3] = float(line[3])
     line[4] = float(line[4])
 
-    if line[4] >= 3:
+    if line[4] > 3:
         raise MeasurementUnitException
 
     return line
