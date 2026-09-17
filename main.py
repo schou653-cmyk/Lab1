@@ -30,6 +30,11 @@ def parse_row(row: str) -> list:
     if line[4] > 3:
         raise MeasurementUnitException
 
+    if range(len(line)) != int or float or str:
+
+        raise ValueError
+
+
     return line
 
 
