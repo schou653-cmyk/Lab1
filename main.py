@@ -9,7 +9,7 @@ from exceptions import (
 
 def compute_BMI(height: float, weight: float) -> float:
     body_mass_index = weight / (height**2)
-    return body_mass_index
+    return (f'{body_mass_index:.2f}')
 
 
 def parse_row(row: str) -> list:
@@ -45,7 +45,7 @@ def main():
             bmi = compute_BMI(attributes[4], attributes[3])
 
             # 2. Write each valid result to the new file
-            outfile.write(f"{attributes[0]},{bmi:.2f}\n")
+            outfile.write(f"{attributes[0]},{bmi}\n")
 
         except MissingValueException:
             print(f"ID: {row.split(',')[0]} Missing value")
