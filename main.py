@@ -18,8 +18,10 @@ def parse_row(row: str) -> list:
     if len(line) != 5:
         raise TextFormatException
 
-    if line[0:5] == "":
-        raise MissingValueException
+    for item in line:
+
+        if item == "":
+            raise MissingValueException
 
     line[0] = int(line[0])
     line[3] = float(line[3])
