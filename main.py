@@ -18,7 +18,7 @@ def parse_row(row: str) -> list:
     if len(line) != 5:
         raise TextFormatException
 
-    if line[3] == "":
+    if line[0:5] == "":
         raise MissingValueException
 
     line[0] = int(line[0])
