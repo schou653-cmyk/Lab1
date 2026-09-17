@@ -17,7 +17,6 @@ def parse_row(row: str) -> list:
     if len(line) != 5:
         raise TextFormatException
 
-    
     if line[3] == '':
 
         raise MissingValueException
@@ -27,7 +26,8 @@ def parse_row(row: str) -> list:
     line[3] = float(line[3])
     line[4] = float(line[4])
 
-
+    if line[4] >= 3:
+        raise MeasurementUnitException
 
     return line
     
@@ -46,12 +46,14 @@ def main():
             bmi = compute_BMI(attributes[4],attributes[3])
             
         except MissingValueException:
-            print("Missing value")
+            print(f"ID: {row.split(',')[0]} Missing value")
 
         except TextFormatException:
-            print("Format Error")
+            print(f"ID: {row.split(',')[0]} Format Error")
+
+        except MeasurementUnitException:
+            print(f"ID: {row.split(',')[0]} Measurement error")
 
 
-    return bmi
 
 main()
